@@ -1,7 +1,7 @@
 # Jackson Encryptor Serializer
 Json end-node value encryption using JSON Views, and a custom jackson serializer
 
-###Dependencies
+### Dependencies
 - Spring Boot
 - Lombok plugin
 
