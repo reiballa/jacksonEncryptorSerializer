@@ -1,6 +1,10 @@
 # Jackson Encryptor Serializer
 Json end-node value encryption using JSON Views, and a custom jackson serializer
 
+###Dependencies
+- Spring Boot
+- Lombok plugin
+
 Using the same POJO and two different json-view endpoints.
 The serializer uses hashing, bit it can be changed to an encryption algorithm.
 
