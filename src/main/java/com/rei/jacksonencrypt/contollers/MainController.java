@@ -1,6 +1,8 @@
 package com.rei.jacksonencrypt.contollers;
 
 import com.fasterxml.jackson.annotation.JsonView;
+import com.google.common.hash.Hashing;
+import com.google.gson.*;
 import com.rei.jacksonencrypt.models.Employee;
 import com.rei.jacksonencrypt.models.Employer;
 import com.rei.jacksonencrypt.views.Views;
@@ -9,7 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.PostConstruct;
 import java.lang.reflect.Field;
+import java.nio.charset.StandardCharsets;
 
 @RestController
 public class MainController {
@@ -32,4 +36,5 @@ public class MainController {
     public void postEmployee(@RequestBody Employee postEmployee){
         System.out.println(postEmployee);
     }
+
 }

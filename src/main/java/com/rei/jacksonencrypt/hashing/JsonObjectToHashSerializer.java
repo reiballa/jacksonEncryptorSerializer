@@ -46,6 +46,13 @@ public class JsonObjectToHashSerializer extends JsonSerializer<Object> {
     private void traverseAndHash(JsonObject jsonObject){
         for (String key : jsonObject.keySet()){
             if(jsonObject.get(key).isJsonObject()) traverseAndHash(jsonObject.get(key).getAsJsonObject());
+            else if(jsonObject.get(key).isJsonArray() && !jsonObject.getAsJsonArray(key).get(0).isJsonPrimitive()){
+
+                jsonObject.getAsJsonArray(key).forEach(jsonElement -> {
+                    traverseAndHash(jsonElement.getAsJsonObject());
+                });
+
+            }
             else{
                 jsonObject.addProperty(key, Hashing.sha256().hashString(jsonObject.get(key).getAsString(), StandardCharsets.UTF_8).toString());
             }
